@@ -26,3 +26,18 @@ function Float_exercise(a1,a2,t,N)
     return a
     
 end
+
+function mergesort(A::Array{Int64,1})
+    
+    n=length(A)
+   
+    if !((n & (n - 1)) == 0)    #checking the matrix A is power of 2
+	println("Length of matrix is not to the power of 2")
+    elseif n==1
+        return A        
+    else
+        m=Int64(n/2)
+        return mergepresorted(mergesort(A[1:m]), mergesort(A[(m+1):n])) 
+    end
+
+end
